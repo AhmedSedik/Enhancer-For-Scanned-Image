@@ -2,12 +2,9 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-
 #include <iostream>
-#include <opencv2/core/types_c.h>
-using namespace std;
-using namespace cv;
 
+using namespace std;
 
 bool headless = false;
 
@@ -38,7 +35,6 @@ void thresholdIntegral(cv::Mat& inputMat, cv::Mat& outputMat)
 
     // perform thresholding
     int s2 = S / 2;
-
     int x1, y1, x2, y2, count, sum;
 
     // CV_Assert(sizeof(int) == 4);
@@ -102,12 +98,7 @@ int main(int argc, char* argv[])
 {
     //! [load_image]
     // Load the image
-    //cv::Mat src = cv::imread(argv[1], cv::IMREAD_GRAYSCALE);
-
-    const char* default_file = "image.bmp";
-    const char* filename = argc >= 2 ? argv[1] : default_file;
-    // Loads an image
-    cv::Mat src = cv::imread(samples::findFile(filename), cv::ImreadModes::IMREAD_GRAYSCALE);
+    cv::Mat src = cv::imread(argv[1], cv::IMREAD_GRAYSCALE);
 
     // Check if image is loaded fine
     if (src.empty())
